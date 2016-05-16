@@ -31,7 +31,7 @@ The `Direction` starts from the first node in the list.
 flow : Direction -> List (Html msg) -> Html msg
 flow dir ns =
   let 
-    common = design << alignItemsCenter
+    common = design --<< alignItemsCenter
     flex = 
       case dir of 
         DUp -> columnReverse
