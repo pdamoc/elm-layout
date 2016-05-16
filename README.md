@@ -12,8 +12,7 @@ Example:
 
 ```elm
 import Flex exposing (..)
-import Html exposing (text, div)
-import Html.Attributes as Attr
+import Html exposing (..)
 
 box grow color = 
   div [design <| flex grow 0 "auto" <| [("background", color)]] []
