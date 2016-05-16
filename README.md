@@ -15,7 +15,7 @@ import Flex exposing (..)
 import Html exposing (..)
 
 box grow color = 
-  div [design <| flex grow 0 "auto" <| [("background", color)]] []
+  div [ design <| flex grow 0 "auto" <| [("background", color)] ] []
 
 main = 
   let
@@ -28,9 +28,9 @@ main =
     mainSection = design <| row <| flex 8 0 "auto" []
 
   in 
-    div [design <| column fullscreen]
+    div [ design <| column fullscreen ]
       [ header
-      , div [mainSection] [nav, content, ads]
+      , div [ mainSection ] [ nav, content, ads ]
       , footer
       ]
 ```
