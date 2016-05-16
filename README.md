@@ -11,25 +11,27 @@ For more information about the flexbox hints use [scotch.io's wonderful tutorial
 Example: 
 
 ```elm
-import Flow exposing (..)
+import Flex exposing (..)
 import Html exposing (text, div)
 import Html.Attributes as Attr
 
-full = "100%"
-
-box w h color = 
-  div [Attr.style [("background", color), ("width", w), ("height", h)]] 
+box grow color = 
+  div [design <| flex grow 0 "auto" <| [("background", color)]] []
 
 main = 
-  flow down 
-    [ box full "10%" "red" []
-    , box full "80%" "white" 
-      [ flow right 
-        [ box "30%" full "green" []
-        , box "50%" full "white" []
-        , box "20%" full "green" []
-        ]
+  let
+    header = box 1  "red"
+    footer = box 1 "black"
+    nav = box 1 "blue" 
+    ads = box 1 "yellow" 
+    content = box 4 "green" 
+
+    mainSection = design <| row <| flex 8 0 "auto" []
+
+  in 
+    div [design <| column fullscreen]
+      [ header
+      , div [mainSection] [nav, content, ads]
+      , footer
       ]
-    , box full "10%" "blue" []
-    ]
 ```
