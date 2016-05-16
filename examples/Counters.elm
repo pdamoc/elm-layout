@@ -31,15 +31,15 @@ update msg {left, right} =
     Left m -> Model (updateCounter m left) right
     Right m -> Model left (updateCounter m right)
 
-counter inc dec m =
+counter m =
   flow down 
-    [ button [onClick inc] [text "+"] 
+    [ button [onClick Increment] [text "+"] 
     , div [] [text (toString m)] 
-    , button [onClick inc] [text "+"] 
+    , button [onClick Decrement] [text "-"] 
     ]
 
 view model = 
   flow right
-    [ counter (Left Increment) (Left Decrement) model.left
-    , counter (Right Increment) (Right Decrement) model.right
+    [ App.map Left (counter model.left)
+    , App.map Right (counter model.right)
     ]
